@@ -1,0 +1,13 @@
+""" 
+Here is are three implementation of a^b mod c. This one uses a specific feature of SAGE: the Integer.binary method. 
+""" 
+def powmod(a,b,c): 
+""" 
+Returns a^b mod c. Assumes all inputs are positive integers. 
+""" 
+d = 1 
+for i in list(Integer.binary(b)): 
+d = mod(d*d, c) 
+if Integer(i) == 1: 
+d = mod(d*a, c) 
+return Integer(d) 
